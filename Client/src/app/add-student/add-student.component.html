@@ -1,0 +1,48 @@
+<form (ngSubmit)="addStudent()" class="container mt-4 p-4 border rounded shadow-sm bg-light">
+    <h3 class="text-center text-primary mb-4">Add New Student</h3>
+    
+    <div class="form-group">
+      <label for="firstName" class="font-weight-bold">First Name:</label>
+      
+      <input 
+        type="text" 
+        id="firstName" 
+        [(ngModel)]="newStudent.firstName" 
+        name="firstName" 
+        required 
+        class="form-control" 
+        placeholder="Enter first name"
+      />
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="lastName" class="font-weight-bold">Last Name:</label>
+      <input 
+        type="text" 
+        id="lastName" 
+        [(ngModel)]="newStudent.lastName" 
+        name="lastName" 
+        required 
+        class="form-control" 
+        placeholder="Enter last name"
+      />
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="className" class="font-weight-bold">Class Name:</label>
+      <input 
+        type="text" 
+        id="className" 
+        [(ngModel)]="newStudent.class" 
+        name="class" 
+        required 
+        class="form-control" 
+        placeholder="Enter class name"
+      />
+    </div>
+    <br>
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary btn-block">Add Student</button>
+    </div>
+  </form>
+  

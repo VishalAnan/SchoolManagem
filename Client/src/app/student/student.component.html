@@ -1,0 +1,32 @@
+<div class="container mt-4">
+    <h2 class="text-center text-primary">Student List</h2>
+    <div *ngIf="employeList.length > 0; else noData" class="table-responsive">
+      <table class="table table-striped table-hover table-bordered">
+        <thead class="thead-dark bg-primary text-white">
+          <tr>
+            <th>ID</th>
+           
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th class="bg-success text-white">Class</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of employeList" class="bg-light">
+            <td class="text-danger font-weight-bold">{{ student.studentId }}</td>
+            <td class="text-success">{{ student.firstName }}</td>
+            <td class="text-info">{{ student.lastName }}</td>
+            <td class="text-warning">{{ student.class }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Template to show when there's no data -->
+    <ng-template #noData>
+      <div class="alert alert-warning text-center">
+        No student data available.
+      </div>
+    </ng-template>
+  </div>
+  

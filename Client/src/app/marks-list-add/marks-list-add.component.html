@@ -1,0 +1,55 @@
+<form (ngSubmit)="addMarks()" class="container mt-4 p-4 border rounded shadow-sm bg-light">
+    <h3 class="text-center text-primary mb-4">Add Student Marks</h3>
+    
+    <div class="form-group">
+      <label for="firstName" class="font-weight-bold">Student Name:</label>
+      <div *ngIf="isLoading" class="text-center">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+      <select *ngIf="!isLoading" [(ngModel)]="newMark.studentId" class="form-control custom-select" name="studentId">
+        <option value="" disabled selected>Select Student</option>
+        <option *ngFor="let student of students$ | async" [value]="student.studentId">
+          {{ student.firstName }} {{ student.lastName }}
+        </option>
+      </select>
+    </div>
+    <br>
+  
+    <div class="form-group">
+      <label for="subjectName" class="font-weight-bold">Subject Name:</label>
+      <div *ngIf="isLoading" class="text-center">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+      <select *ngIf="!isLoading" [(ngModel)]="newMark.subjectId" class="form-control custom-select" name="subjectId">
+        <option value="" disabled selected>Select Subject</option>
+        <option *ngFor="let subject of subject$ | async" [value]="subject.subjectId">
+          {{ subject.name }}
+        </option>
+      </select>
+    </div>
+    <br>
+  
+    <div class="form-group">
+      <label for="score" class="font-weight-bold">Score:</label>
+      <input 
+        type="number" 
+        id="score" 
+        [(ngModel)]="newMark.score" 
+        name="score" 
+        required 
+        [value]="newMark.score == 0 ?'' :  newMark.score"
+        class="form-control" 
+        placeholder="Enter score"
+      />
+    </div>
+    <br>
+  
+    <div class="text-center">
+      <button type="submit" class="btn btn-primary btn-block">Add Mark</button>
+    </div>
+  </form>
+  

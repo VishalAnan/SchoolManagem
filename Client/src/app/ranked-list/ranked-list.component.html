@@ -1,0 +1,31 @@
+<div class="container mt-4">
+    <h2 class="text-center text-primary">Student Ranked List</h2>
+    <div *ngIf="rank.length > 0; else noData" class="table-responsive">
+      <table class="table table-striped table-hover table-bordered">
+        <thead class="thead-dark bg-primary text-white">
+          <tr>
+            <th class="bg-info text-white">Name</th>
+            <th class="bg-success text-white">Class</th>
+            <th class="bg-warning text-dark">Total Score</th>
+            <th class="bg-secondary text-white">Rank</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let srank of rank" class="bg-light">
+            <td class="text-info font-weight-bold">{{srank.fullName}}</td>
+            <td class="text-success">{{srank.class}}</td>
+            <td class="text-warning">{{srank.totalScore}}</td>
+            <td class="text-secondary">{{srank.rank}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Template to show when there's no data -->
+    <ng-template #noData>
+      <div class="alert alert-warning text-center">
+        No student data available.
+      </div>
+    </ng-template>
+  </div>
+  
